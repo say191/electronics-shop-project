@@ -40,6 +40,12 @@ class Item:
         """
         self.price = self.price * Item.pay_rate
 
+    def __add__(self, other):
+        if isinstance(other, Item):
+            return self.quantity+other.quantity
+        else:
+            raise ValueError
+
     @property
     def name(self):
         return f"{self.__name}"
